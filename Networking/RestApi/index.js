@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+// to suppor this import statements .. added type="module" in the package.json 
 
+// instance of express is obtained and assignd to app. 
 const app = express();
 
 app.use(bodyParser.json());
