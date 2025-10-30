@@ -1,6 +1,12 @@
+// just like HTML has version 5 set , we are also mentioning here syntax as versioning as ' proto3 '
 syntax = "proto3";
 
+
+// wriing all the services 
 service CustomerService {
+// here rpc say .. remote procedure call .. 
+// empty -- passing nothing as of now and expecting customerList as output 
+// CustomerRequestId --- passing as input and expecting Customer as output 
     rpc GetAll (Empty) returns (CustomerList) {}
     rpc Get (CustomerRequestId) returns (Customer) {}
     rpc Insert (Customer) returns (Customer) {}
@@ -8,13 +14,17 @@ service CustomerService {
     rpc Remove (CustomerRequestId) returns (Empty) {}
 }
 
+// message specifies the type of the item.. just like TS has type.. here too.. 
 message Empty {}
 
 message CustomerRequestId {
+// here adding number as 1 is very imp, helps in versioning , serrializing and de-seralization .. to understand previous versions..
     string id = 1;
 }
 
 message CustomerList {
+// here saying repeated to mention that has  Array .. kind of .. 
+// customers of type Customer .. that gets repeated and Customer is defined below in the Customer message as shown below 
     repeated Customer customers = 1;
 }
 
