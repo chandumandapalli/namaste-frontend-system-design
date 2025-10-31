@@ -24,6 +24,7 @@
   // using CDN from FE , .. as shown below
   <script src="/socket.io/socket.io.js" ></script>
   <script>
+    // grabbing socket using the following sytax from the window CDN .. as shown below .. 
     const socket = window.io();
     const form = document.getElementById('form');
     const input = document.getElementById('input');
@@ -38,6 +39,8 @@
       }
     });
 
+
+    // Listening to the emitted socket msg in the client using socket.on as shown below.. 
     socket.on('chat message', (msg) => {
       const item = document.createElement('li');
       item.textContent = msg;
