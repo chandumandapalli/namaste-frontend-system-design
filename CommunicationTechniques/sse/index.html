@@ -10,7 +10,8 @@
     <div id="sse-data"></div>
 
     <script>
-      // Setup sse connection
+      // Setup sse connection 
+      // event source is given by the browser itself.. 
       const eventSource = new EventSource("/sse");
 
       eventSource.onmessage = (event) => {
