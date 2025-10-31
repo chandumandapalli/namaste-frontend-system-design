@@ -11,14 +11,16 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'index.html'));
 });
 
+// Here establishing a socket connectioin using io.on ( ' connection ') 
+// this gives call back with socket .. and usign that socket .. listtenign to custom event & emitting msgs respectively .. 
 io.on('connection', (socket) => {
   console.log('Connection established');
-
+// Here 'chat 'message' is a custom event 
   socket.on('chat message', (msg) => {
     console.log('received message', msg);
     io.emit('chat message', msg);
   });
-
+// Here disconnect is a custom event. 
   socket.on('disconnect', () => {
     console.log('User disconnected!');
   })
