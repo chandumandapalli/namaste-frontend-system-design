@@ -18,6 +18,7 @@ function App() {
     <div>
       <header className="text-2xl font-bold py-5 bg-black text-white text-center flex">
         Hello World
+    // Addign navigation links under Nav element.. as shown below.. 
         <nav className="px-20 m-2 w-[1200px] flex justify-between text-lg">
           <a href="/">Home </a>
           <a href="/about">About </a>
@@ -37,11 +38,23 @@ function App() {
           <option value="ru">Russian</option>
         </select>
       </header>
+// all the header above this header will stay as it is .. and it doesn't get affected by the router 
+//at all as it is outside of the scope of Routing....
+
+
+  // Routing will be hanlded on the TOP layer of the app.. 
+  // Never and ever mix .. redirection logic and authentication logic together.. 
+  // ❌❌❌❌{ isAuthenitcated ? (  <Route path="/" element={<Body />}></Route> ) :   <Route path="/login" element={<Login />}></Route>❌❌❌❌❌❌❌
+  // above is very bad way of doing .. it .. never with that autehenticatioin logic withthe routes path ..
+  // so write is sepeartely in diff file ( here protected.js file ) 
+
 
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Body />}></Route>
+  // Here we are saying that elemetn as ProctedRoute and about comp is now getting protected.. 
           <Route element={<ProtectedRoute />}>
+  // all children here will be under protected route .. where authentication is being checked.. 
             <Route path="/team" element={<Team />}></Route>
           </Route>
           <Route path="/about" element={<About lang={lang} />}></Route>
