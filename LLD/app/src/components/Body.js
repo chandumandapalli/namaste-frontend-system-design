@@ -37,7 +37,7 @@ const Body = () => {
       {memes.map((meme, i) => (
         <MemeCard key={i} data={meme} />
       ))}
-
+// showing shimmer UI when the var set to shimmer UI set to TRUE... 
       {showShimmer && <Shimmer />}
     </div>
   );
