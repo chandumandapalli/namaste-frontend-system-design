@@ -3,7 +3,12 @@ import { MemeCard } from "./MemeCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
+  // Here creating a inritial state as empty .. [] .. taking this as NULL
+  // will create an issue when fetch for the first time in the append way 
+  // ...NULL -- gives error .. so using better .. empty array .. as shown .. 
   const [memes, setMemes] = useState([]);
+  // taking seperate state.. as whenever fetching data .. will show shimmer UI .. 
+  // and as the res is obtained.. then make it false.. 
   const [showShimmer, setShowShimmer] = useState(false);
 
   useEffect(() => {
@@ -19,6 +24,7 @@ const Body = () => {
     // innerHeight - heigh of the window(visible setion)
     // document.body.scrollHeight - total height of the web page
     if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+      // as we come to the end of the page.. 
       fetchMemes();
     }
   };
@@ -29,6 +35,7 @@ const Body = () => {
     const json = await data.json();
 
     setShowShimmer(false);
+    // making shimmer ui as false.. before setting data.. 
     setMemes((memes) => [...memes, ...json.memes]);
   };
 
