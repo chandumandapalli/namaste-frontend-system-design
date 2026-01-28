@@ -13,6 +13,7 @@ import LiveChat from "./components/live-chat/Live Chat";
 import SearchUi from "./components/search-ui/SearchUi";
 
 function App() {
+  // Local state var for chekcing which lang is being selected.. 
   const [lang, setLang] = useState("en");
   return (
     <div>
@@ -31,6 +32,8 @@ function App() {
           <a href="/team">Team </a>
           <a href="/login">Login </a>
         </nav>
+
+    // writing a select option to select which language to choose for muli language support 
         <select value={lang} onChange={(e) => setLang(e.target.value)}>
           <option value="en">English</option>
           <option value="hi">Hindi</option>
