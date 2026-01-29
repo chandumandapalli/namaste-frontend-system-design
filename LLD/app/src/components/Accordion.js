@@ -1,6 +1,8 @@
 import { useState } from "react";
 import AccordionItem from "./AccordionItem";
 
+// ask the inteviewewer where am i gettin this data from  ? ( api , fetch call , local , dummy ) 
+// very much requried to ask where am i getting this data.. from ?
 const data = [
   {
     title: "Accordion Item #1",
@@ -17,6 +19,8 @@ const data = [
 ];
 
 const Accordion = () => {
+  // the accordian index that is to be used.. 
+  // parent controls the state.. 
   const [openIndex, setOpenIndex] = useState(0);
   return (
     <div className="w-[50%] m-auto mt-5">
@@ -24,8 +28,8 @@ const Accordion = () => {
         <AccordionItem
           key={index}
           title={item.title}
-          body={item.body}
-          isOpen={index === openIndex ? true : false}
+          body={item.body} 
+          isOpen={index === openIndex ? true : false} // makign the only one accordian based on the index.. 
           setIsOpen={() => {
             index === openIndex ? setOpenIndex(null) : setOpenIndex(index);
           }}
