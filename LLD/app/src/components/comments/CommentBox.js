@@ -1,3 +1,5 @@
+// whenever trying to build always build for somthing simple then build for remaining ..
+// here built for single comment first then start doing it for the next things.. 
 const CommentBox = ({ data }) => {
   return data.map((comment, index) => (
     <div className=" pl-10 border-l-2 border-black" key={index}>
